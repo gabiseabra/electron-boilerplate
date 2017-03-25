@@ -1,0 +1,19 @@
+{
+	"extends": [
+		"stylelint-config-standard",
+		"stylelint-config-css-modules"
+	],
+	"rules": {
+		"indentation": "tab",
+		"number-leading-zero": "never",
+		"rule-empty-line-before": [
+			"always",
+			{
+				"except": [
+					"first-nested",
+					"inside-block-and-after-rule"
+				]
+			}
+		]
+	}
+}

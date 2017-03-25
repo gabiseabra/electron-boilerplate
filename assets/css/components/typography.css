@@ -1,0 +1,35 @@
+body {
+	font-family: var(--bodyFont);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: .5em 0;
+	line-height: 110%;
+	font-family: var(--headingFont);
+	font-weight: 400;
+}
+
+h1 {
+	font-size: 2em;
+	font-weight: 700;
+}
+
+h2 { font-size: 1.5em; }
+
+h3 { font-size: 1.17em; }
+
+h4 { font-size: 1.12em; }
+
+h5 { font-size: .83em; }
+
+h6 {
+	font-size: .75em;
+	font-family: var(--bodyFont);
+}
+
+p { margin: 1em 0; }

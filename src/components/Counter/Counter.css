@@ -1,0 +1,29 @@
+.Counter {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	height: 100%;
+	width: 100%;
+}
+
+.count,
+.controls {
+	text-align: center;
+}
+
+.count {
+	font-size: 4.2em;
+}
+
+.controls > * {
+	margin: 0 .65em;
+}
+
+.async:hover > [data-react-toolbox=font-icon] {
+	&::before {
+		content: "loop";
+	}
+	& span {
+		display: none;
+	}
+}

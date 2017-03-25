@@ -1,0 +1,56 @@
+.About {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	font-size: .9em;
+}
+
+.logo {
+	width: 150px;
+}
+
+.title {
+	margin: 1em 0;
+
+	& * {
+		margin: .3em 0;
+	}
+	& h1 {
+		font-size: 1.85em;
+	}
+	& h2 {
+		font-size: 1.15em;
+	}
+}
+
+.description {
+	color: #555;
+
+	& p {
+		margin: .3em 0;
+	}
+}
+
+.versions {
+	width: 200px;
+	color: #555;
+	text-align: left;
+
+	& > div {
+		width: 100%;
+		display: table;
+
+		& > * { display: table-cell; }
+		& dt {
+			width: 40%;
+			padding-right: 10px;
+
+			&::after {
+				content: ":";
+				float: right;
+			}
+		}
+	}
+}

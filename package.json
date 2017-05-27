@@ -5,11 +5,13 @@
   "description": "Electron + React + Redux + Webpack 2 boilerplate",
   "main": "build/main.js",
   "scripts": {
+    "postinstall": "install-app-deps",
     "start": "electron .",
     "watch": "webpack-dev-server --config=./webpack/devServer.babel.js --hot --inline",
     "build": "better-npm-run build",
     "build:main": "better-npm-run build:main",
     "build:renderer": "better-npm-run build:renderer",
+    "dist": "build",
     "clean": "npm run clean:build && npm run clean:dist",
     "clean:build": "rimraf ./build",
     "clean:dist": "rimraf ./dist"
@@ -40,7 +42,7 @@
     "css-loader": "^0.28.0",
     "devtron": "^1.4.0",
     "dotenv": "^4.0.0",
-    "electron": "^1.6.2",
+    "electron-builder": "^18.1.0",
     "electron-debug": "^1.1.0",
     "electron-devtools-installer": "^2.2.0",
     "eslint": "^3.15.0",
@@ -79,6 +81,7 @@
     "sass-loader": "^6.0.3"
   },
   "dependencies": {
+    "electron": "^1.6.2",
     "babel-polyfill": "^6.22.0",
     "fs": "0.0.1-security",
     "path": "^0.12.7",

@@ -4,7 +4,7 @@ export default function build(context) {
 	return [
 		{
 			test: /\.jsx?$/,
-			include: [ path.join(context, "src") ],
+			exclude: /node_modules/,
 			loader: "babel-loader"
 		}
 	]

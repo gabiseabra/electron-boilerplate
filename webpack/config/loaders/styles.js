@@ -28,28 +28,38 @@ export default function build(context, opts) {
 			/react-toolbox/
 		]
 	}, opts, defaults)
+
 	const condition = {
 		include: modules,
 		exclude: /global\.\w+$/
 	}
+
 	const loaders = [
 		{
 			test: /\.css$/,
-			exclude: condition,
-			use: [
-				{ loader: "css-loader", options: options.css },
-				{ loader: "postcss-loader", options: options.postcss }
-			]
+			use: [ { loader: "postcss-loader", options: options.postcss } ]
 		},
 		{
-			test: /\.css$/,
-			include: condition,
-			use: [
-				{ loader: "css-loader", options: options.mcss },
-				{ loader: "postcss-loader", options: options.postcss }
-			]
+			test: /\.less$/,
+			use: [ { loader: "less-loader", options: options.less } ]
+		},
+		{
+			test: /\.s[ac]ss$/,
+			use: [ { loader: "sass-loader", options: options.sass } ]
 		}
-	]
+	].reduce((arr, { test, use }) => arr.concat(
+		{
+			test,
+			exclude: condition,
+			use: [ { loader: "css-loader", options: options.css }, ...use ]
+		},
+		{
+			test,
+			include: condition,
+			use: [ { loader: "css-loader", options: options.mcss }, ...use ]
+		}
+	), [])
+
 	if(extract) {
 		return loaders.map(loader => ({
 			...loader,
@@ -59,5 +69,6 @@ export default function build(context, opts) {
 			})
 		}))
 	}
+
 	return loaders
 }

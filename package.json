@@ -7,13 +7,14 @@
   "scripts": {
     "postinstall": "install-app-deps",
     "start": "electron .",
+    "prewatch": "npm run build:main",
     "watch": "webpack-dev-server --config=./webpack/devServer.babel.js --hot --inline",
     "build": "better-npm-run build",
     "build:main": "better-npm-run build:main",
     "build:renderer": "better-npm-run build:renderer",
     "dist": "build",
     "clean": "npm run clean:build && npm run clean:dist",
-    "clean:build": "rimraf ./build",
+    "clean:build": "rimraf ./build/app",
     "clean:dist": "rimraf ./dist"
   },
   "betterScripts": {

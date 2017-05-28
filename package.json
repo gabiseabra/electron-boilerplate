@@ -29,6 +29,11 @@
   "author": "Gabriela Seabra",
   "license": "MIT",
   "copyright": "© 2017 - Gabriela Seabra",
+  "homepage": "https://github.com/gabiseabra/electron-boilerplate",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gabiseabra/electron-boilerplate.git"
+  },
   "devDependencies": {
     "babel-core": "^6.24.1",
     "babel-eslint": "^7.2.3",

@@ -1,6 +1,6 @@
+---
 appId: "org.gabiseabra.electronApp"
-files:
-	- build
-	- node_modules
 publish: github
-
+files:
+  - build
+  - node_modules

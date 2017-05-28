@@ -10,7 +10,7 @@ const context = path.resolve(__dirname, "..", "..")
 export default merge.smart({
 	context,
 	output: {
-		path: path.join(context, "build"),
+		path: path.join(context, "build", "app"),
 		publicPath: "",
 		filename: "[name].js"
 	},

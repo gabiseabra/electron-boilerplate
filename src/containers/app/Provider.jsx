@@ -1,10 +1,10 @@
-import React, { Component, PropTypes } from "react"
+import React, { PropTypes } from "react"
 import { Provider } from "react-redux"
 import { AppContainer } from "react-hot-loader"
 import { remote } from "electron"
 import App from "../../lib/App"
 
-export default class ContextProvider extends Component {
+export default class ContextProvider extends React.Component {
 	static propTypes = {
 		store: PropTypes.object,
 		// locale: PropTypes.string.isRequired,
@@ -39,3 +39,18 @@ export default class ContextProvider extends Component {
 		return component
 	}
 }
+
+export const withAppData = Component => (
+	// eslint-disable-next-line
+	class extends React.Component {
+		static contextTypes = {
+			app: PropTypes.instanceOf(App)
+		}
+
+		render() {
+			const props = this.props
+			const { app } = this.context
+			return 	<Component {...props} app={app} />
+		}
+	}
+)

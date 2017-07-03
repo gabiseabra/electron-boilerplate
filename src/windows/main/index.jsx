@@ -1,7 +1,7 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import { HashRouter as Router } from "react-router-dom"
-import { App, Provider } from "../../containers"
+import { Shell, Provider } from "../../containers/app"
 import createStore from "../../redux/store"
 import createSaga from "../../redux/saga"
 import routes from "./routes"
@@ -13,7 +13,7 @@ store.runSaga(createSaga())
 ReactDOM.render(
 	<Provider store={store}>
 		<Router>
-			<App>{routes}</App>
+			<Shell>{routes}</Shell>
 		</Router>
 	</Provider>,
 	document.getElementById("app")

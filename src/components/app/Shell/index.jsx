@@ -1,16 +1,16 @@
 import React, { PropTypes } from "react"
-import { GoBack } from "../../components"
-import styles from "./App.css"
+import GoBack from "../GoBack"
+import styles from "./Shell.css"
 
-const App = ({ children }) => (
+const Shell = ({ children }) => (
 	<div className={styles.App}>
 		<GoBack className={styles.nav} />
 		{children}
 	</div>
 )
 
-App.propTypes = {
+Shell.propTypes = {
 	children: PropTypes.node
 }
 
-export default App
+export default Shell

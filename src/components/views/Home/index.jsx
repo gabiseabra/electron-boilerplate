@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import { Button } from "react-toolbox"
 import styles from "./Home.css"
 
-const Home = (options, { app }) => (
+const Home = ({ app }) => (
 	<div className={styles.Home}>
 		<h1 className={styles.title}>
 			{app.title}
@@ -16,7 +16,7 @@ const Home = (options, { app }) => (
 	</div>
 )
 
-Home.contextTypes = {
+Home.propTypes = {
 	app: PropTypes.object.isRequired
 }
 

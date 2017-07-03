@@ -1,7 +1,7 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import { HashRouter as Router } from "react-router-dom"
-import { About, Provider } from "../../containers"
+import { About, Provider } from "../../containers/app"
 
 ReactDOM.render(
 	<Provider>

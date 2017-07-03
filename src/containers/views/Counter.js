@@ -1,5 +1,5 @@
 import { connect } from "react-redux"
-import { Counter } from "../../components"
+import { Counter } from "../../components/views"
 import { getCount, isCounterSynched } from "../../redux/selectors"
 import * as actions from "../../redux/modules/counter"
 

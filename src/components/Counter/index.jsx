@@ -2,6 +2,10 @@ import React, { PropTypes } from "react"
 import { Button } from "react-toolbox/lib/button"
 import styles from "./Counter.css"
 
+const AsyncButton = (props) => (
+	<Button {...props} className={styles.async} />
+)
+
 const Counter = ({
 	count,
 	synched,
@@ -13,11 +17,11 @@ const Counter = ({
 	<div className={styles.Counter}>
 		<div className={styles.count + (synched ? " synched" : "")}>{count}</div>
 		<div className={styles.controls}>
-			<Button
+			<AsyncButton
 				icon="add"
 				alt="Increment Async"
-				floating primary
-				className={styles.async}
+				floating
+				primary
 				onClick={() => incrementAsync()} />
 			<Button
 				icon="add"
@@ -29,11 +33,11 @@ const Counter = ({
 				alt="Decrement"
 				floating
 				onClick={() => decrement()} />
-			<Button
+			<AsyncButton
 				icon="remove"
 				alt="Decrement Async"
-				floating primary
-				className={styles.async}
+				floating
+				primary
 				onClick={() => decrementAsync()} />
 		</div>
 	</div>

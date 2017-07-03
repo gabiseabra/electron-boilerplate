@@ -13,7 +13,7 @@ export default merge(config, {
 		host: HOST,
 		port: PORT,
 		publicPath,
-		contentBase: "./build",
+		contentBase: "./build/app",
 		quiet: true,
 		// noInfo: true,
 		compress: true,

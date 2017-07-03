@@ -9,20 +9,21 @@ import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer"
 import fonts from "../../assets/css/fonts.json"
 import config, { loaders } from "../config"
 
-const entries = [
+const common = [
 	"babel-polyfill",
 	"./assets/css/app.css",
 	"./assets/css/global.css"
 ]
 
 if(process.argv.indexOf("--hot") !== -1) {
-	entries.unshift("react-hot-loader/patch")
+	common.unshift("react-hot-loader/patch")
 }
 
 export default merge.smart(config, {
 	entry: {
-		main: [ ...entries, "./src/windows/main" ],
-		about: [ ...entries, "./src/windows/about" ]
+		common,
+		main: "./src/windows/main",
+		about: "./src/windows/about"
 	},
 	target: "electron-renderer",
 	output: {

@@ -11,6 +11,7 @@ import config, { loaders } from "../config"
 
 const common = [
 	"babel-polyfill",
+	"./src/locales",
 	"./assets/css/app.css",
 	"./assets/css/global.css"
 ]

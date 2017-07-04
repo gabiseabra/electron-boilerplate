@@ -1,13 +1,15 @@
 import React, { PropTypes } from "react"
 import { Provider } from "react-redux"
+import { IntlProvider } from "react-intl"
 import { AppContainer } from "react-hot-loader"
 import { remote } from "electron"
+import translations from "../../locales/translations"
 import App from "../../lib/App"
 
 export default class ContextProvider extends React.Component {
 	static propTypes = {
 		store: PropTypes.object,
-		// locale: PropTypes.string.isRequired,
+		locale: PropTypes.string.isRequired,
 		context: PropTypes.string.isRequired,
 		children: PropTypes.node.isRequired
 	}
@@ -28,7 +30,7 @@ export default class ContextProvider extends React.Component {
 	}
 
 	render() {
-		const { store, children } = this.props
+		const { store, locale, children } = this.props
 		let component = children
 		if(store) {
 			component = (<Provider store={store}>{component}</Provider>)
@@ -36,7 +38,11 @@ export default class ContextProvider extends React.Component {
 		if(module.hot) {
 			component = (<AppContainer>{component}</AppContainer>)
 		}
-		return component
+		return (
+			<IntlProvider locale={locale} messages={translations[locale]}>
+				{component}
+			</IntlProvider>
+		)
 	}
 }
 

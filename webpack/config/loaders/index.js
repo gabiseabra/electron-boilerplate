@@ -2,11 +2,11 @@ import fonts from "./fonts"
 import images from "./images"
 import styles from "./styles"
 import scripts from "./scripts"
-import locales from "./locales"
+import json from "./json"
 
-const modules = { fonts, images, styles, scripts, locales }
+const modules = { fonts, images, styles, scripts, json }
 
-export { fonts, images, styles, scripts, locales }
+export { fonts, images, styles, scripts, json }
 
 export default function build(context, options = {}) {
 	const loaders = []

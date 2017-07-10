@@ -2,7 +2,14 @@
 	"presets": [
 		"es2015",
 		"stage-1",
-		"react"
+		"react",
+		["env", {
+			"targets": {
+				"chrome": 52,
+				"node": "current",
+				"electron": "1.6"
+			}
+		}]
 	],
 	"env": {
 		"production": {

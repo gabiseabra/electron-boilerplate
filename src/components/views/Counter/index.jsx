@@ -1,12 +1,12 @@
 import React, { PropTypes } from "react"
 import { Button } from "react-toolbox/lib/button"
+import { injectIntl } from "react-intl"
+import AsyncButton from "./AsyncButton"
 import styles from "./Counter.css"
-
-const AsyncButton = (props) => (
-	<Button {...props} className={styles.async} />
-)
+import messages from "./messages"
 
 const Counter = ({
+	intl,
 	count,
 	synched,
 	increment,
@@ -19,26 +19,26 @@ const Counter = ({
 		<div className={styles.controls}>
 			<AsyncButton
 				icon="add"
-				alt="Increment Async"
+				title={intl.formatMessage(messages.incrementAsync)}
 				floating
 				primary
 				onClick={() => incrementAsync()} />
 			<Button
 				icon="add"
-				alt="Increment"
+				title={intl.formatMessage(messages.increment)}
 				floating
 				onClick={() => increment()} />
 			<Button
 				icon="remove"
-				alt="Decrement"
+				title={intl.formatMessage(messages.decrement)}
 				floating
 				onClick={() => decrement()} />
 			<AsyncButton
 				icon="remove"
-				alt="Decrement Async"
+				title={intl.formatMessage(messages.decrementAsync)}
 				floating
 				primary
-				onClick={() => decrementAsync()} />
+				onClick={() => console.log(decrementAsync())} />
 		</div>
 	</div>
 )
@@ -52,4 +52,4 @@ Counter.propTypes = {
 	decrementAsync: PropTypes.func.isRequired
 }
 
-export default Counter
+export default injectIntl(Counter)

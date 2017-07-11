@@ -18,12 +18,3 @@
 .controls > * {
 	margin: 0 .65em;
 }
-
-.async:hover > [data-react-toolbox=font-icon] {
-	&::before {
-		content: "loop";
-	}
-	& span {
-		display: none;
-	}
-}

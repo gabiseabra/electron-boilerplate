@@ -12,7 +12,6 @@ import config, { loaders } from "../config"
 const common = [
 	"babel-polyfill",
 	"./src/locales",
-	"./assets/css/app.css",
 	"./assets/css/global.css"
 ]
 
@@ -51,7 +50,8 @@ export default merge.smart(config, {
 		new HtmlHarddiskPlugin(),
 		new webpack.optimize.CommonsChunkPlugin("common"),
 		new ExtractTextPlugin({
-			filename: "app.css",
+			filename: "[name].css",
+			allChunks: true,
 			disable: process.env.NODE_ENV === "development"
 		}),
 		new GoogleFontsPlugin({

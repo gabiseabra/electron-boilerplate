@@ -17,11 +17,13 @@ const defaults = context => ({
 	},
 	modules: {
 		include: [
-			path.join(context, "assets"),
 			path.join(context, "src"),
 			/react-toolbox/
 		],
-		exclude: /global\.\w+$/
+		exclude: [
+			path.join(context, "assets"),
+			/global\.\w+$/
+		]
 	}
 })
 

@@ -7,11 +7,11 @@
   "scripts": {
     "postinstall": "install-app-deps",
     "start": "electron .",
-    "prewatch": "npm run build:main",
+    "prewatch": "yarn run build:main",
     "watch": "webpack-dev-server --config=./webpack/devServer.babel.js --hot --inline",
     "build": "webpack --config=webpack/config.babel.js --progress --colors",
-    "build:dev": "cross-env NODE_ENV=development npm run build --",
-    "build:prod": "cross-env NODE_ENV=production npm run build --",
+    "build:dev": "cross-env NODE_ENV=development yarn run build --",
+    "build:prod": "cross-env NODE_ENV=production yarn run build --",
     "build:main": "webpack --config=webpack/bundles/main.babel.js --progress --colors",
     "build:renderer": "webpack --config=webpack/bundles/renderer.babel.js --progress --colors",
     "pack": "build --dir",
@@ -20,19 +20,9 @@
     "dist:mac": "build --mac",
     "dist:linux": "build --linux",
     "translate": "babel-node --presets es2015 -- ./scripts/translate.js -o ./src/locales/translations -l en",
-    "clean": "npm run clean:build && npm run clean:dist",
+    "clean": "yarn run clean:build && yarn run clean:dist",
     "clean:build": "rimraf ./build/app",
     "clean:dist": "rimraf ./dist"
-  },
-  "betterScripts": {
-    "build": {
-      "command": "webpack --config=webpack/config.babel.js --progress --colors -p",
-      "env": {
-        "NODE_ENV": "production"
-      }
-    },
-    "build:main": "webpack --config=webpack/bundles/main.babel.js --progress --colors",
-    "build:renderer": "webpack --config=webpack/bundles/renderer.babel.js --progress --colors"
   },
   "author": "Gabriela Seabra",
   "license": "MIT",

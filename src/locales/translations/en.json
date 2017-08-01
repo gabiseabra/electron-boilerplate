@@ -1,7 +1,7 @@
 {
-	"views.Counter.increment": "Increment",
-	"views.Counter.decrement": "Decrement",
-	"views.Counter.incrementAsync": "Increment Async",
-	"views.Counter.decrementAsync": "Decrement Async",
+  "views.Counter.increment": "Increment",
+  "views.Counter.decrement": "Decrement",
+  "views.Counter.incrementAsync": "Increment Async",
+  "views.Counter.decrementAsync": "Decrement Async",
   "views.Home.counter": "Counter"
 }

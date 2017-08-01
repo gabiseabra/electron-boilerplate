@@ -19,7 +19,7 @@
     "dist:win": "build --win",
     "dist:mac": "build --mac",
     "dist:linux": "build --linux",
-    "translate": "babel-node ./scripts/translate.js ./src/locales/translations/descriptions.json",
+    "translate": "babel-node --presets es2015 -- ./scripts/translate.js -o ./src/locales/translations -l en",
     "clean": "npm run clean:build && npm run clean:dist",
     "clean:build": "rimraf ./build/app",
     "clean:dist": "rimraf ./dist"
@@ -89,7 +89,8 @@
     "webpack-bundle-analyzer": "^2.3.1",
     "webpack-dev-server": "^2.4.2",
     "webpack-merge": "^4.1.0",
-    "webpack-node-externals": "^1.5.4"
+    "webpack-node-externals": "^1.5.4",
+    "yargs": "^8.0.2"
   },
   "optionalDependencies": {
     "less": "^2.7.2",

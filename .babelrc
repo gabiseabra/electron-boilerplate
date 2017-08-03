@@ -5,8 +5,8 @@
 		"react",
 		["env", {
 			"targets": {
+				"node": "7",
 				"chrome": 52,
-				"node": "current",
 				"electron": "1.6"
 			}
 		}]

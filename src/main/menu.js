@@ -1,4 +1,4 @@
-import { getGlobal } from "./globals"
+import globals from "../lib/globals"
 import windows from "../windows"
 
 const template = [
@@ -29,7 +29,7 @@ const template = [
 
 if(process.platform === "darwin") {
 	template.unshift({
-		label: getGlobal("name"),
+		label: globals.get("name"),
 		submenu: [
 			{ role: "about" },
 			{ type: "separator" },

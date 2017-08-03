@@ -2,8 +2,8 @@ import React, { PropTypes } from "react"
 import { Provider } from "react-redux"
 import { IntlProvider } from "react-intl"
 import { AppContainer } from "react-hot-loader"
-import { remote } from "electron"
 import translations from "../../locales/translations"
+import globals from "../../lib/globals"
 import App from "../../lib/App"
 
 export default class ContextProvider extends React.Component {
@@ -15,8 +15,8 @@ export default class ContextProvider extends React.Component {
 	}
 
 	static defaultProps = {
-		locale: remote.getGlobal("locale"),
-		context: remote.getGlobal("context")
+		locale: globals.get("locale"),
+		context: globals.get("context")
 	}
 
 	static childContextTypes = {

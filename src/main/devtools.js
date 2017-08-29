@@ -6,7 +6,7 @@ import installExtension, {
 	REACT_PERF
 } from "electron-devtools-installer"
 
-const installDevtools = (forceDownload) => 	Promise.all([
+const installDevtools = forceDownload => 	Promise.all([
 	installExtension(REACT_DEVELOPER_TOOLS, forceDownload),
 	installExtension(REDUX_DEVTOOLS, forceDownload),
 	installExtension(REACT_PERF, forceDownload)

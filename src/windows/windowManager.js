@@ -1,6 +1,6 @@
 export default function windowManager(windows, ...args) {
 	const instances = {}
-	const getWindow = (id) => () => {
+	const getWindow = id => () => {
 		if(!instances[id]) {
 			if(!windows[id]) throw new Error(`Undefined window "${id}".`)
 			const win = windows[id](...args)

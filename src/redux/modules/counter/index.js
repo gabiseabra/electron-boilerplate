@@ -3,8 +3,8 @@ export const DECREMENT = "counter/DECREMENT"
 export const INCREMENT_ASYNC = "counter/INCREMENT_ASYNC"
 export const DECREMENT_ASYNC = "counter/DECREMENT_ASYNC"
 
-export const increment = (sync) => ({ type: INCREMENT, sync })
-export const decrement = (sync) => ({ type: DECREMENT, sync })
+export const increment = sync => ({ type: INCREMENT, sync })
+export const decrement = sync => ({ type: DECREMENT, sync })
 export const incrementAsync = () => ({ type: INCREMENT_ASYNC })
 export const decrementAsync = () => ({ type: DECREMENT_ASYNC })
 

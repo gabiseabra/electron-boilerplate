@@ -1,37 +1,62 @@
 {
+	"extends": "airbnb",
 	"env": {
 		"browser": true,
 		"node": true,
 		"es6": true
 	},
-	"extends": "airbnb",
-	"plugins": [ "react" ],
+	"plugins": [
+		"react",
+		"jsx-a11y",
+		"import"
+	],
 	"parser": "babel-eslint",
 	"parserOptions": {
 		"sourceType": "module"
 	},
+	"settings": {
+		"import/resolver": {
+			"webpack": {
+				"config": "webpack/bundles/server.babel.js"
+			}
+		}
+	},
 	"rules": {
-		"indent": [ "error", "tab", { "SwitchCase": 1 } ],
-		"react/jsx-indent": [ "error", "tab" ],
-		"react/jsx-indent-props": "off",
-		"react/jsx-closing-bracket-location": "off",
-		"react/require-default-props": "off",
-		"react/forbid-prop-types": "off",
-		"comma-dangle": [ "error", "never" ],
-		"quotes": [ "error", "double", { "avoidEscape": true } ],
-		"array-bracket-spacing": [ "error", "always" ],
-		"semi": "off",
+    "import/no-extraneous-dependencies": ["error", {
+      "devDependencies": true
+    }],
+    "quotes": ["error", "double", {
+      "avoidEscape": true
+    }],
+    "keyword-spacing": ["error", {
+      "overrides": {
+        "if": { "after": false },
+        "for": { "after": false },
+        "while": { "after": false },
+        "catch": { "after": false },
+        "switch": { "after": false }
+      }
+    }],
+    "generator-star-spacing": ["error", {
+      "before": true,
+      "after": true
+    }],
+    "no-plusplus": ["error", {
+      "allowForLoopAfterthoughts": true
+    }],
+		"indent": ["error", "tab", {
+			"SwitchCase": 1
+		}],
+		"react/jsx-indent": ["error", "tab"],
+		"react/jsx-indent-props": ["error", "tab"],
 		"no-tabs": "off",
-		"arrow-parens": "off",
-		"new-parens": "off",
-		"keyword-spacing": "off",
-		"default-case": "off",
-		"class-methods-use-this": "off",
-		"no-plusplus": "off",
-		"consistent-return": "off",
-		"no-underscore-dangle": "off",
-		"no-else-return": "off",
-		"generator-star-spacing": [ "error", { "before": true, "after": true } ],
-		"import/no-extraneous-dependencies": "off"
+    "comma-dangle": ["error", "never"],
+    "array-bracket-spacing": ["error", "always"],
+    "semi": ["error", "never"],
+    "global-require": "warn",
+    "class-methods-use-this": "off",
+    "react/forbid-prop-types": "off",
+    "react/require-default-props": "off",
+    "react/jsx-closing-bracket-location": ["error", "after-props"]
 	}
 }

@@ -1,7 +1,6 @@
 import React, { PropTypes } from "react"
 import { Provider } from "react-redux"
 import { IntlProvider } from "react-intl"
-import { AppContainer } from "react-hot-loader"
 import translations from "../../locales/translations"
 import globals from "../../lib/globals"
 import App from "../../lib/App"
@@ -36,6 +35,7 @@ export default class ContextProvider extends React.Component {
 			component = (<Provider store={store}>{component}</Provider>)
 		}
 		if(module.hot) {
+			const { AppContainer } = require("react-hot-loader")
 			component = (<AppContainer>{component}</AppContainer>)
 		}
 		return (

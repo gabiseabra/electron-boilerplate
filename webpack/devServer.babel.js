@@ -14,14 +14,11 @@ export default merge(config, {
 		port: PORT,
 		publicPath,
 		contentBase: "./build/app",
-		quiet: true,
-		// noInfo: true,
 		compress: true,
+		noInfo: true,
+		clientLogLevel: "none",
 		headers: {
 			"Access-Control-Allow-Origin": "*"
-		},
-		stats: {
-			colors: true
 		}
 	}
 })

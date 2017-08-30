@@ -1,4 +1,5 @@
-import React, { PropTypes } from "react"
+import React from "react"
+import PropTypes from "prop-types"
 import { Button } from "react-toolbox/lib/button"
 import { injectIntl } from "react-intl"
 import AsyncButton from "./AsyncButton"
@@ -38,12 +39,13 @@ const Counter = ({
 				title={intl.formatMessage(messages.decrementAsync)}
 				floating
 				primary
-				onClick={() => console.log(decrementAsync())} />
+				onClick={() => decrementAsync()} />
 		</div>
 	</div>
 )
 
 Counter.propTypes = {
+	intl: PropTypes.object.isRequired,
 	count: PropTypes.number.isRequired,
 	synched: PropTypes.bool.isRequired,
 	increment: PropTypes.func.isRequired,

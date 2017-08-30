@@ -2,9 +2,9 @@ import React from "react"
 import PropTypes from "prop-types"
 import styles from "./About.css"
 
-const About = ({ app, icon, versions }) => (
+const About = ({ app, versions }) => (
 	<div className={styles.About}>
-		{icon && <img src={icon} className={styles.logo} alt={app.productName} />}
+		<img src={require("assets/img/logo.svg")} className={styles.logo} alt={app.productName} />
 		<div className={styles.title}>
 			<h1>{app.productName}</h1>
 			<h2>
@@ -32,7 +32,6 @@ const About = ({ app, icon, versions }) => (
 )
 
 About.propTypes = {
-	icon: PropTypes.string,
 	app: PropTypes.object.isRequired,
 	versions: PropTypes.objectOf(PropTypes.string).isRequired
 }

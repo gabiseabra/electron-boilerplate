@@ -17,7 +17,7 @@
 	"settings": {
 		"import/resolver": {
 			"webpack": {
-				"config": "webpack/bundles/server.babel.js"
+				"config": "webpack/bundles/main.babel.js"
 			}
 		}
 	},
@@ -53,7 +53,7 @@
     "comma-dangle": ["error", "never"],
     "array-bracket-spacing": ["error", "always"],
     "semi": ["error", "never"],
-    "global-require": "warn",
+    "global-require": "off",
     "class-methods-use-this": "off",
     "react/forbid-prop-types": "off",
     "react/require-default-props": "off",

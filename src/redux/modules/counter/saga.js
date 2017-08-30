@@ -1,5 +1,5 @@
 import { delay } from	 "redux-saga"
-import { put, takeLatest } from "redux-saga/effects"
+import { all, put, takeLatest } from "redux-saga/effects"
 import {
 	INCREMENT_ASYNC,
 	DECREMENT_ASYNC,
@@ -15,8 +15,8 @@ function * counterFn(actionCreator) {
 }
 
 export default function * watch() {
-	yield [
+	yield all([
 		takeLatest(INCREMENT_ASYNC, counterFn.bind(undefined, increment)),
 		takeLatest(DECREMENT_ASYNC, counterFn.bind(undefined, decrement))
-	]
+	])
 }

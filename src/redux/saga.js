@@ -1,10 +1,10 @@
-import { fork } from "redux-saga/effects"
+import { all, fork } from "redux-saga/effects"
 import { counter } from "./modules/sagas"
 
 export default function create() {
 	return function * root() {
-		yield [
+		yield all([
 			fork(counter)
-		]
+		])
 	}
 }

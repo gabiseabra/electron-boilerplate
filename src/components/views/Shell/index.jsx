@@ -1,16 +1,17 @@
 import React from "react"
 import PropTypes from "prop-types"
-import GoBack from "../GoBack"
+import { AppBar } from "../../shared"
 import styles from "./Shell.css"
 
-const Shell = ({ children }) => (
-	<div className={styles.App}>
-		<GoBack className={styles.nav} />
+const Shell = ({ app, children }) => (
+	<div className={styles.Shell}>
+		<AppBar title={app.title} />
 		{children}
 	</div>
 )
 
 Shell.propTypes = {
+	app: PropTypes.object.isRequired,
 	children: PropTypes.node
 }
 

@@ -1,4 +1,4 @@
 *::selection {
-	background: var(--primaryColor);
-	color: var(--primaryTextColor);
+	background: var(--palette-primary-400);
+	color: var(--palette-primary-50);
 }

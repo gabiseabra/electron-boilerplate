@@ -3,12 +3,12 @@ import { Counter } from "../../components/views"
 import { getCount, isCounterSynched } from "../../redux/selectors"
 import * as actions from "../../redux/modules/counter"
 
-const mapper = state => ({
+const props = state => ({
 	count: getCount(state),
 	synched: isCounterSynched(state)
 })
 
-export default connect(mapper, {
+export default connect(props, {
 	increment: actions.increment,
 	decrement: actions.decrement,
 	incrementAsync: actions.incrementAsync,

@@ -1,11 +1,14 @@
 import React from "react"
 import { NavLink } from "react-router-dom"
-import { Button } from "react-toolbox"
+import { IconButton } from "material-ui"
+import ArrowBackIcon from "material-ui-icons/ArrowBack"
 
 export default function GoBack(props) {
 	return (
 		<NavLink exact to="/" isActive={match => !match} {...props}>
-			<Button icon="arrow_back" floating mini />
+			<IconButton color="contrast" aria-label="go back">
+				<ArrowBackIcon />
+			</IconButton>
 		</NavLink>
 	)
 }

@@ -17,8 +17,7 @@ const defaults = context => ({
 	},
 	modules: {
 		include: [
-			path.join(context, "src"),
-			/react-toolbox/
+			path.join(context, "src")
 		],
 		exclude: [
 			path.join(context, "assets"),

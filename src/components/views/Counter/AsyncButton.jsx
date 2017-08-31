@@ -1,24 +1,30 @@
 import React, { Component } from "react"
-import { Button } from "react-toolbox/lib/button"
+import PropTypes from "prop-types"
+import Button from "material-ui/Button"
+import LoopIcon from "material-ui-icons/Loop"
 
 export default class AsyncButton extends Component {
-	state = {
-		active: false,
-		hover: false
+	static propTypes = {
+		children: PropTypes.any
 	}
 
-	onMouseEnter = () => this.setState({ hover: true })
+	state = {
+		active: false
+	}
 
-	onMouseLeave = () => this.setState({ hover: false })
+	onMouseEnter = () => this.setState({ active: true })
+
+	onMouseLeave = () => this.setState({ active: false })
 
 	render() {
-		const icon = (this.state.hover ? "loop" : this.props.icon)
+		const { children, ...props } = this.props
 		return (
 			<Button
-				{...this.props}
-				icon={icon}
+				{...props}
 				onMouseEnter={this.onMouseEnter}
-				onMouseLeave={this.onMouseLeave} />
+				onMouseLeave={this.onMouseLeave}>
+				{this.state.active ? <LoopIcon /> : children}
+			</Button>
 		)
 	}
 }

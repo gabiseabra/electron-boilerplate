@@ -1,8 +1,4 @@
-.App {
+.Shell {
 	display: flex;
 	flex-direction: column;
-}
-
-.nav {
-	margin: .5em 1em;
 }

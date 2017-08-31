@@ -2,6 +2,8 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Provider } from "react-redux"
 import { IntlProvider } from "react-intl"
+import { MuiThemeProvider } from "material-ui/styles"
+import theme from "assets/theme"
 import translations from "../../locales/translations"
 import globals from "../../lib/globals"
 import App from "../../lib/App"
@@ -41,7 +43,9 @@ export default class ContextProvider extends React.Component {
 		}
 		return (
 			<IntlProvider locale={locale} messages={translations[locale]}>
-				{component}
+				<MuiThemeProvider theme={theme}>
+					{component}
+				</MuiThemeProvider>
 			</IntlProvider>
 		)
 	}

@@ -1,6 +1,7 @@
 const path = require("path")
+const flatten = require("flat")
+const theme = require("./assets/theme")
 const config = require("./webpack/config").default
-const variables = require("./assets/css/variables")
 const {
 	ResolverFactory,
 	NodeJsInputFileSystem,
@@ -28,7 +29,9 @@ module.exports = {
 		"postcss-url": {},
 		"postcss-cssnext": {
 			features: {
-				customProperties: { variables }
+				customProperties: {
+					variables: flatten(theme, { delimiter: "-" })
+				}
 			}
 		}
 	}

@@ -1,7 +1,9 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Button } from "react-toolbox/lib/button"
 import { injectIntl } from "react-intl"
+import { Button } from "material-ui"
+import AddIcon from "material-ui-icons/Add"
+import RemoveIcon from "material-ui-icons/Remove"
 import AsyncButton from "./AsyncButton"
 import styles from "./Counter.css"
 import messages from "./messages"
@@ -19,27 +21,31 @@ const Counter = ({
 		<div className={styles.count + (synched ? " synched" : "")}>{count}</div>
 		<div className={styles.controls}>
 			<AsyncButton
-				icon="add"
+				fab
+				color="primary"
 				title={intl.formatMessage(messages.incrementAsync)}
-				floating
-				primary
-				onClick={() => incrementAsync()} />
+				onClick={() => incrementAsync()}>
+				<AddIcon />
+			</AsyncButton>
 			<Button
-				icon="add"
+				fab
 				title={intl.formatMessage(messages.increment)}
-				floating
-				onClick={() => increment()} />
+				onClick={() => increment()}>
+				<AddIcon />
+			</Button>
 			<Button
-				icon="remove"
+				fab
 				title={intl.formatMessage(messages.decrement)}
-				floating
-				onClick={() => decrement()} />
+				onClick={() => decrement()}>
+				<RemoveIcon />
+			</Button>
 			<AsyncButton
-				icon="remove"
+				fab
+				color="primary"
 				title={intl.formatMessage(messages.decrementAsync)}
-				floating
-				primary
-				onClick={() => decrementAsync()} />
+				onClick={() => decrementAsync()}>
+				<RemoveIcon />
+			</AsyncButton>
 		</div>
 	</div>
 )

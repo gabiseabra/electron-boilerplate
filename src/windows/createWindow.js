@@ -24,5 +24,12 @@ export default function createWindow(name, options) {
 			fs.writeFileSync(fileName, stateJson, "utf-8")
 		}
 	})
+	// Fix window title on page load
+	if(options.title) {
+		win.defaultTitle = options.title
+		win.webContents.on("did-finish-load", () => {
+			win.setTitle(options.title)
+		})
+	}
 	return win
 }

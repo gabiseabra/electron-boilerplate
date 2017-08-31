@@ -4,39 +4,39 @@
 image: electronuserland/electron-builder:wine
 
 cache:
-	untracked: true
-	paths:
-		- node_modules
-		- build
+  untracked: true
+  paths:
+    - node_modules
+    - build
 
 variables:
-	BUILD_NUMBER: $CI_BUILD_ID
+  BUILD_NUMBER: $CI_BUILD_ID
 
 stages:
-	- build
-	- test
-	- publish
+  - build
+  - test
+  - publish
 
 ########################################
 # Jobs
 ########################################
 install:
-	stage: build
-	script:
-		- yarn install --pure-lockfile
-		- yarn run build:prod
+  stage: build
+  script:
+    - yarn install --pure-lockfile
+    - yarn run build:prod
 
 lint:
-	stage: test
-	script:
-		- yarn run lint
+  stage: test
+  script:
+    - yarn run lint
 
 dist:
-	stage: publish
-	script:
-		- yarn run dist -- --mlw --ia32 --x64
-	artifacts:
-		paths:
-			- dist
-	only:
-		- tags
+  stage: publish
+  script:
+    - yarn run dist -- --mlw --ia32 --x64
+  artifacts:
+    paths:
+      - dist
+  only:
+    - tags

@@ -4,3 +4,15 @@ publish: github
 files:
   - build
   - node_modules
+win:
+	target:
+		- nsis
+		- zip
+linux:
+	target:
+		- AppImage
+		- tar.gz
+mac:
+	target:
+		- dmg
+		- zip

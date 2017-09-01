@@ -1,0 +1,40 @@
+sudo: false
+
+osx_image: xcode8.3
+
+language: node_js
+
+node_js: "7"
+
+os:
+  - osx
+  - linux
+
+env:
+  global:
+    - ELECTRON_CACHE="$HOME/.cache/electron"
+    - ELECTRON_BUILDER_CACHE="$HOME/.cache/electron-builder"
+
+cache:
+  yarn: true
+  directories:
+    - node_modules
+    - build
+    - $ELECTRON_CACHE
+    - $ELECTRON_BUILDER_CACHE
+
+install:
+  - yarn install --frozen-lockfile
+
+script:
+  - yarn build:prod
+  - yarn run lint
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
+      yarn publish -- --linux;
+    fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
+      yarn publish -- --mac --win;
+    fi
+
+before_cache:
+  - rm -rf "$ELECTRON_BUILDER_CACHE/wine"

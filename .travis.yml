@@ -24,7 +24,7 @@ cache:
     - $ELECTRON_BUILDER_CACHE
 
 install:
-  - yarn install --frozen-lockfile
+  - yarn install --pure-lockfile
 
 script:
   - yarn build:prod

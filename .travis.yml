@@ -30,10 +30,10 @@ script:
   - yarn build:prod
   - yarn run lint
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
-      yarn publish -- --linux;
+      yarn run publish -- --linux;
     fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
-      yarn publish -- --mac --win;
+      yarn run publish -- --mac --win;
     fi
 
 before_cache:

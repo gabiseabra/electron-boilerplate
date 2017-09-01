@@ -34,7 +34,7 @@ lint:
 dist:win:
   stage: publish
   script:
-    - yarn run dist -- --linux --win
+    - yarn run dist -- --linux --win --publish never
   artifacts:
     paths:
       - dist

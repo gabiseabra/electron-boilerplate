@@ -20,7 +20,7 @@ stages:
 ########################################
 # Jobs
 ########################################
-install:
+build:
   stage: build
   script:
     - yarn install --pure-lockfile
@@ -31,10 +31,10 @@ lint:
   script:
     - yarn run lint
 
-dist:
+dist:win:
   stage: publish
   script:
-    - yarn run dist -- --mlw --ia32 --x64
+    - yarn run dist -- --linux --win
   artifacts:
     paths:
       - dist

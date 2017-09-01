@@ -10,6 +10,12 @@ os:
   - osx
   - linux
 
+addons:
+  apt:
+    packages:
+      - icnsutils
+      - graphicsmagick
+
 env:
   global:
     - ELECTRON_CACHE="$HOME/.cache/electron"

@@ -1,7 +1,7 @@
 {
   "name": "electron-boilerplate",
   "productName": "Electron Boilerplate",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Electron + React + Redux + Webpack 2 boilerplate",
   "main": "build/app/main.js",
   "scripts": {

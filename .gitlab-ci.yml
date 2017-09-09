@@ -31,7 +31,7 @@ lint:
   script:
     - yarn run lint
 
-dist:win:
+dist:
   stage: publish
   script:
     - yarn run dist -- --linux --win --publish never

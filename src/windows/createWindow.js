@@ -1,8 +1,18 @@
 import path from "path"
 import fs from "fs"
 import { app, BrowserWindow } from "electron"
+import globals from "../lib/globals"
 
+/**
+ * Create BrowserWindow instance with persistent position and size
+ *
+ * @export
+ * @param {String} name    Window identifier
+ * @param {Object} options BrowserWindow options
+ * @returns BrowserWindow
+ */
 export default function createWindow(name, options) {
+	const appUrl = globals.get("url")
 	const fileName = path.join(app.getPath("userData"), `${name}.window.json`)
 	let state = {}
 	try {
@@ -30,6 +40,10 @@ export default function createWindow(name, options) {
 		win.webContents.on("did-finish-load", () => {
 			win.setTitle(options.title)
 		})
+	}
+	// Load window url
+	if(options.path) {
+		win.loadURL(appUrl(options.path))
 	}
 	return win
 }

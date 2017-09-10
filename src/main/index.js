@@ -1,3 +1,4 @@
+import path from "path"
 import { app, Menu } from "electron"
 import globals from "../lib/globals"
 import template from "./menu"
@@ -13,6 +14,7 @@ app.once("ready", () => {
 	globals.set("locale", app.getLocale())
 	globals.set("context", app.getAppPath())
 	globals.set("buildDir", __dirname)
+	globals.set("url", target => `file://${path.join(__dirname, target)}`)
 	windows.main()
 	Menu.setApplicationMenu(
 		Menu.buildFromTemplate(template)

@@ -19,12 +19,10 @@ describe("application", () => {
 	})
 
 	it("preserves window state between launches", async function () {
-		const state = {
-			width: 600,
-			height: 400
-		}
-		await app.window.setBounds(state)
+		const width = 600
+		const height = 400
+		await app.window.setSize(width, height)
 		await app.restart(this)
-		await app.window.getBounds().should.eventually.include(state)
+		await app.window.getSize().should.eventually.deep.equal([ width, height ])
 	})
 })

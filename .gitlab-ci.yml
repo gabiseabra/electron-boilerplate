@@ -24,7 +24,6 @@ variables:
 stages:
   - build
   - test
-  - prepublish
   - publish
 ########################################
 # Jobs

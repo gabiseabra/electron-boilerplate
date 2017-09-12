@@ -20,8 +20,6 @@ describe("application", () => {
 
 	it("preserves window state between launches", async function () {
 		const state = {
-			x: 10,
-			y: 10,
 			width: 600,
 			height: 400
 		}

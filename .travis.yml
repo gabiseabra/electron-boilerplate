@@ -15,6 +15,7 @@ addons:
     packages:
       - icnsutils
       - graphicsmagick
+      - xvfb
 
 env:
   global:
@@ -29,12 +30,18 @@ cache:
     - $ELECTRON_CACHE
     - $ELECTRON_BUILDER_CACHE
 
+before_script:
+  - Xvfb -ac -screen scrn 1280x2000x24 :99 > /dev/null 2>&1 &
+  - export DISPLAY=":99.0"
+
 install:
   - yarn install --pure-lockfile
 
 script:
-  - yarn build:prod
+  - yarn build:test
+  - yarn run test
   - yarn run lint
+  - yarn build:prod
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
       yarn run publish -- --linux;
     fi

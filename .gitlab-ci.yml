@@ -4,8 +4,8 @@
 .test: &test
   stage: test
   before_script:
-    - Xvfb -ac -screen scrn 1280x2000x24 :9.0 &
-    - export DISPLAY=:9.0
+    - Xvfb -ac -screen scrn 1280x2000x24 :99 > /dev/null 2>&1 &
+    - export DISPLAY=":99.0"
 ########################################
 # Pipeline
 ########################################

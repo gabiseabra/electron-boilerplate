@@ -1,4 +1,3 @@
-/* eslint-env mocha */
 import path from "path"
 import semver from "semver-utils"
 import App from "../../src/lib/App"

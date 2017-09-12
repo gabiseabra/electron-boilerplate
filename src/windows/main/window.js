@@ -8,7 +8,8 @@ export default function create() {
 		minWidth: 400,
 		minHeight: 300,
 		backgroundColor: "#ffffff",
-		center: true
+		center: true,
+		nodeIntegration: true
 	})
 	if(process.env.NODE_ENV === "development") {
 		win.webContents.openDevTools()

@@ -18,9 +18,10 @@ const Counter = ({
 	decrementAsync
 }) => (
 	<div className={styles.Counter}>
-		<div className={styles.count + (synched ? " synched" : "")}>{count}</div>
+		<div id="count" className={styles.count + (synched ? " synched" : "")}>{count}</div>
 		<div className={styles.controls}>
 			<AsyncButton
+				id="incr-async"
 				fab
 				color="primary"
 				title={intl.formatMessage(messages.incrementAsync)}
@@ -28,18 +29,21 @@ const Counter = ({
 				<AddIcon />
 			</AsyncButton>
 			<Button
+				id="incr"
 				fab
 				title={intl.formatMessage(messages.increment)}
 				onClick={() => increment()}>
 				<AddIcon />
 			</Button>
 			<Button
+				id="decr"
 				fab
 				title={intl.formatMessage(messages.decrement)}
 				onClick={() => decrement()}>
 				<RemoveIcon />
 			</Button>
 			<AsyncButton
+				id="decr-async"
 				fab
 				color="primary"
 				title={intl.formatMessage(messages.decrementAsync)}

@@ -9,9 +9,11 @@ if(process.env.NODE_ENV === "development") {
 }
 
 app.once("ready", () => {
+	// Always test application in english
+	const locale = (process.env.NODE_ENV === "test" ? "en" : app.getLocale())
 	globals.set("name", app.getName())
 	globals.set("version", app.getVersion())
-	globals.set("locale", app.getLocale())
+	globals.set("locale", locale)
 	globals.set("context", app.getAppPath())
 	globals.set("buildDir", __dirname)
 	globals.set("url", target => `file://${path.join(__dirname, target)}`)

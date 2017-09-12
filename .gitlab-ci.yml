@@ -1,4 +1,12 @@
 ########################################
+# Templates
+########################################
+.test: &test
+  stage: test
+  before_script:
+    - Xvfb -ac -screen scrn 1280x2000x24 :9.0 &
+    - export DISPLAY=:9.0
+########################################
 # Pipeline
 ########################################
 image: electronuserland/electron-builder:wine
@@ -11,13 +19,13 @@ cache:
 
 variables:
   BUILD_NUMBER: $CI_BUILD_ID
+  SPECTRON_TIMEOUT: 10000
 
 stages:
   - build
   - test
   - prepublish
   - publish
-
 ########################################
 # Jobs
 ########################################
@@ -28,12 +36,12 @@ build:
     - yarn run build:test
 
 test:
-  stage: test
+  <<: *test
   script:
     - yarn run test:unit
 
 e2e:
-  stage: test
+  <<: *test
   script:
     - yarn run test:e2e
 
@@ -42,14 +50,10 @@ lint:
   script:
     - yarn run lint
 
-build:prod:
-  stage: prepublish
-  script:
-    - yarn run build:prod
-
 dist:
   stage: publish
   script:
+    - yarn run build:prod
     - yarn run dist -- --linux --win --publish never
   artifacts:
     paths:

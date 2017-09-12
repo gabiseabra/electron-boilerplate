@@ -3,7 +3,6 @@ import createWindow from "../createWindow"
 
 export default function create() {
 	const win = createWindow("main", {
-		path: "main.html",
 		title: app.getName(),
 		minWidth: 400,
 		minHeight: 300,

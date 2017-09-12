@@ -13,12 +13,14 @@ export default class ContextProvider extends React.Component {
 		store: PropTypes.object,
 		locale: PropTypes.string.isRequired,
 		context: PropTypes.string.isRequired,
+		buildDir: PropTypes.string,
 		children: PropTypes.node.isRequired
 	}
 
 	static defaultProps = {
 		locale: globals.get("locale"),
-		context: globals.get("context")
+		context: globals.get("context"),
+		buildDir: globals.get("buildDir")
 	}
 
 	static childContextTypes = {
@@ -26,8 +28,9 @@ export default class ContextProvider extends React.Component {
 	}
 
 	getChildContext() {
+		const { context, buildDir } = this.props
 		return {
-			app: new App(this.props.context)
+			app: new App(context, buildDir)
 		}
 	}
 

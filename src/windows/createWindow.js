@@ -12,7 +12,7 @@ import globals from "../lib/globals"
  * @returns BrowserWindow
  */
 export default function createWindow(name, options) {
-	const appUrl = globals.get("url")
+	const appData = globals.get("app")
 	const fileName = path.join(app.getPath("userData"), `${name}.window.json`)
 	let state = {}
 	try {
@@ -42,8 +42,6 @@ export default function createWindow(name, options) {
 		})
 	}
 	// Load window url
-	if(options.path) {
-		win.loadURL(appUrl(options.path))
-	}
+	win.loadURL(appData.url(name, options.path || "/"))
 	return win
 }

@@ -1,7 +1,6 @@
 export default class Module {
 	constructor(app) {
 		this.app = app
-		this.modules = this.app.modules
 	}
 
 	setup() {
@@ -19,10 +18,4 @@ export default class Module {
 	}
 
 	get client() { return this.app.client }
-	get electron() { return this.app.electron }
-	get remote() { return this.app.remote }
-
-	open() {
-		return this.client.appUrl(this.path)
-	}
 }

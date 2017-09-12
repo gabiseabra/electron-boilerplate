@@ -1,7 +1,6 @@
 import Module from "../../lib/Module"
 
 export default class Main extends Module {
-	path = "main.html/"
 	selectors = {
 		counterButton: "button*=Counter"
 	}

@@ -1,7 +1,6 @@
 import Module from "../../lib/Module"
 
 export default class Counter extends Module {
-	path = "main.html/counter"
 	selectors = {
 		count: "#count",
 		increment: "#incr",
@@ -11,7 +10,7 @@ export default class Counter extends Module {
 	}
 
 	async navigate() {
-		const { main } = this.modules
+		const { main } = this.app.modules
 		await main.ready()
 		return main.counterButton.click()
 	}

@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+import { ExternalLink } from "../../shared"
 import styles from "./About.css"
 
 const About = ({ app, versions }) => (
@@ -25,8 +26,8 @@ const About = ({ app, versions }) => (
 			))}
 		</dl>
 		<div className={styles.links}>
-			{app.homepage && <a href={app.homepage}>Website</a>}
-			{app.bugs && <a href={app.bugs.url}>Found a bug?</a>}
+			{app.homepage && <ExternalLink href={app.homepage}>Website</ExternalLink>}
+			{app.bugs && <ExternalLink href={app.bugs.url}>Found a bug?</ExternalLink>}
 		</div>
 	</div>
 )

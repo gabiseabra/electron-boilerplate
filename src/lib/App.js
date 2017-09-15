@@ -15,7 +15,7 @@ export default class App {
 		this.name = pkg.name
 		this.productName = pkg.productName
 		this.description = pkg.description
-		this.bugs = pkg.bugs
+		this.bugs = (typeof pkg.bugs === "object" ? pkg.bugs.url : pkg.bugs)
 		this.homepage = pkg.homepage
 		this.copyright = pkg.copyright
 		this.license = pkg.license

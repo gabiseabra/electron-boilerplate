@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+import { Button } from "material-ui"
 import { ExternalLink } from "../../shared"
 import styles from "./About.css"
 
@@ -26,8 +27,14 @@ const About = ({ app, versions }) => (
 			))}
 		</dl>
 		<div className={styles.links}>
-			{app.homepage && <ExternalLink href={app.homepage}>Website</ExternalLink>}
-			{app.bugs && <ExternalLink href={app.bugs.url}>Found a bug?</ExternalLink>}
+			{app.homepage &&
+				<Button>
+					<ExternalLink href={app.homepage}>Website</ExternalLink>
+				</Button>}
+			{app.bugs &&
+				<Button>
+					<ExternalLink href={app.bugs}>Found a bug?</ExternalLink>
+				</Button>}
 		</div>
 	</div>
 )

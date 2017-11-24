@@ -15,12 +15,11 @@ const runSaga = () => {
 }
 
 const render = () => {
-	const { Shell } = require("../../containers/views")
-	const routes = require("./routes").default
+	const { Main } = require("../../containers/windows")
 	ReactDOM.render(
 		<Provider store={store}>
 			<Router>
-				<Shell>{routes}</Shell>
+				<Main />
 			</Router>
 		</Provider>,
 		document.getElementById("app")
@@ -33,5 +32,5 @@ runSaga()
 
 if(module.hot) {
 	module.hot.accept("../../redux/saga", runSaga)
-	module.hot.accept([ "../../containers/views", "./routes" ], render)
+	module.hot.accept([ "../../containers/windows" ], render)
 }

@@ -1,5 +1,5 @@
-import globals from "../lib/globals"
 import windows from "../windows"
+import globals from "./globals"
 
 const template = [
 	{

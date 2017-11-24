@@ -1,7 +1,7 @@
 import path from "path"
 import fs from "fs"
 import { app, BrowserWindow } from "electron"
-import globals from "../lib/globals"
+import globals from "../main/globals"
 
 /**
  * Create BrowserWindow instance with persistent position and size

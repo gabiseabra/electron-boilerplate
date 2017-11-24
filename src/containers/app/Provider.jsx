@@ -5,7 +5,7 @@ import { IntlProvider } from "react-intl"
 import { MuiThemeProvider } from "material-ui/styles"
 import theme from "assets/theme"
 import translations from "../../locales/translations"
-import globals from "../../lib/globals"
+import globals from "../../main/globals"
 import App from "../../lib/App"
 
 export default class ContextProvider extends React.Component {

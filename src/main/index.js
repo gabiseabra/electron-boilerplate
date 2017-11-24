@@ -1,6 +1,6 @@
 // import path from "path"
 import { app, Menu } from "electron"
-import globals from "../lib/globals"
+import globals from "./globals"
 import template from "./menu"
 import windows from "../windows"
 import App from "../lib/App"
